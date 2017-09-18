@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   # GET /about
   def about
-    @your_name = 'your name here'
+    @your_name = 'alexis herrera'
   end
 
 end

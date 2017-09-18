@@ -17,6 +17,12 @@ $fellows-background: #F1F1F1;
   }
 }
 
+.home-banner {
+  background-color: blue;
+  height: 100%;
+  width: 100%;
+}
+
 .layout-container > header  {
   font-family: 'Muli', sans-serif;
   background-color: $fellows-blue !important;
