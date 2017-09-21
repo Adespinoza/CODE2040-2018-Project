@@ -97,4 +97,16 @@ class Spell
     return nil
   end
 
+  #function to find the counts of all the spells in mention
+  #returns an array
+  def self.findCountsOfAllSpellsInMention
+    map = Hash.new(0)
+    mentionArr = Mention.data
+    for mention in mentionArr
+      map[mention["Spell"]] = map[mention["Spell"]] + 1
+    end
+    return map
+  end
+
+
 end

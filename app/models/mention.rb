@@ -21,4 +21,25 @@ class Mention
     new(data.sample)
   end
 
+  #function to find the frequency of each book in the data set
+  def self.bookFrequency
+    map = Hash.new(0)
+    mentionArr = Mention.data
+    for mention in mentionArr
+      map[mention["Book"]] = map[mention["Book"]] + 1
+    end
+    return map;
+  end
+
+  #function to find the 3 most common spells per book
+  def self.topThreeSpellsPerBook
+    map = Hash.new([])
+    mentionArr = Mention.data
+    for mention in mentionArr
+      map[mention["Book"]] = map[mention["Book"]] + 1
+    end
+    return map;
+  end
+
+
 end
