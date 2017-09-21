@@ -60,6 +60,7 @@ class Mention
   end
 
   #function to find minimal size of number of spells out of all books
+  #used for error handling
   def self.minimalSpellCountAmongAllBooks
     bookToSpellsMap = Mention.spellsPerBook
     minCount = Mention.data.size
@@ -77,11 +78,30 @@ class Mention
 
     #we will return a map of books --> maps with the top n spells used
     #if there are non n spells used it only return as many as there are
+    booksToSpellsTopN = Hash.new()
 
+    #populate bookToSpellsTopN with other map that will eventually be a map of spells
+    bookToSpellsMap.each do |k, v|
+      booksToSpellsTopN[k] = Hash.new(0)
+    end
 
-
-
-
+    #iterate through bookToSpellsMap and for each v find the top n
+    bookToSpellsMap.each do |k, v|
+      if (n > v.size)
+        booksToSpellsTopN[k] = Hash[v.sort_by{|k2, v2| v2}.reverse]
+      else
+        count = 0
+        Hash[v.sort_by{|k2, v2| v2}.reverse].each do |k3, v3|
+          if count == n
+            break
+          end
+          booksToSpellsTopN[k][k3] = v3
+          count = count + 1
+        end
+      end
+    end
+    #return mapping of books to topN spells per book
+    return booksToSpellsTopN
   end
 
   #function to find the 8 most common names in mentions
