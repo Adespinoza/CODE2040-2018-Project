@@ -32,7 +32,32 @@ class Mention
     return map
   end
 
-  #function to find the 3 most common spells per book
+  #function to create a map of books and all their spells (as well as their count)
+  def self.spellsPerBook
+    #we will map books to another map of spells to their counts
+    bookToSpellsMap = Hash.new()
+
+    books = ["1: SS", "2: CoS", "3: PoA", "4: GoF", "5: OotP", "6: HBP", "7: DH"]
+
+    #populate bookToSpellsMap with other map that will eventually be a map of spells
+    for b in books
+      bookToSpellsMap[b] = Hash.new(0)
+    end
+
+    #iterate through mention data
+    mentionArr = Mention.data
+    for mention in mentionArr
+
+      book = mention["Book"]
+      spell = mention["Spell"]
+      spellMapForBook = bookToSpellsMap[book]
+      spellMapForBook[spell] = spellMapForBook[spell] + 1
+
+      #update the bookToSpells map
+      bookToSpellsMap[book] = spellMapForBook
+    end
+    return bookToSpellsMap
+  end
 
   #function to find the 8 most common names in mentions
   def self.topEightMostCommonNames
