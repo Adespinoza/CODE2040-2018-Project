@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'json'
 gem 'faker'
+gem 'binaryheap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

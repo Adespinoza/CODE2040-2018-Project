@@ -6,6 +6,7 @@ class HomeController < ApplicationController
     @other = Mention.random.quote
     @otherSpell = Spell.findCountsOfAllSpellsInMention
     @bookData = Mention.bookFrequency
+    @test = Mention.topEightMostCommonNames
   end
 
   # GET /about

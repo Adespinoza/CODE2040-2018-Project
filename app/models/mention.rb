@@ -1,4 +1,5 @@
 require 'json'
+require 'binaryheap'
 
 class Mention
 
@@ -28,17 +29,20 @@ class Mention
     for mention in mentionArr
       map[mention["Book"]] = map[mention["Book"]] + 1
     end
-    return map;
+    return map
   end
 
-  #function to find the most common names in mentions
+  #function to find the 3 most common spells per book
+
+  #function to find the 8 most common names in mentions
   def self.topEightMostCommonNames
-    map = Hash.new([])
+    bh = BinaryHeap.new
+    map = Hash.new(0)
     mentionArr = Mention.data
     for mention in mentionArr
       map[mention["Book"]] = map[mention["Book"]] + 1
     end
-    return map;
+    return map
   end
 
 
