@@ -31,8 +31,8 @@ class Mention
     return map;
   end
 
-  #function to find the 3 most common spells per book
-  def self.topThreeSpellsPerBook
+  #function to find the most common names in mentions
+  def self.topEightMostCommonNames
     map = Hash.new([])
     mentionArr = Mention.data
     for mention in mentionArr
