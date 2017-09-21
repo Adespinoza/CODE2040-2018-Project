@@ -59,6 +59,31 @@ class Mention
     return bookToSpellsMap
   end
 
+  #function to find minimal size of number of spells out of all books
+  def self.minimalSpellCountAmongAllBooks
+    bookToSpellsMap = Mention.spellsPerBook
+    minCount = Mention.data.size
+    bookToSpellsMap.each do |k, v|
+      if (minCount > v.size)
+        minCount = v.size
+      end
+    end
+    return minCount
+  end
+
+  #function to retrieve the top n spells per book
+  def self.topNSpellsPerBook(n)
+    bookToSpellsMap = Mention.spellsPerBook
+
+    #we will return a map of books --> maps with the top n spells used
+    #if there are non n spells used it only return as many as there are
+
+
+
+
+
+  end
+
   #function to find the 8 most common names in mentions
   def self.topEightMostCommonNames
     bh = BinaryHeap.new

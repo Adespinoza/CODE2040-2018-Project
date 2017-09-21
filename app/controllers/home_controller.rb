@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     @otherSpell = Spell.findCountsOfAllSpellsInMention
     @bookData = Mention.bookFrequency
     @test = Mention.topEightMostCommonNames
-    @bookToSpellsMap = Mention.spellsPerBook
+    @bookToSpellsMap = Mention.minimalSpellCountAmongAllBooks
   end
 
   # GET /about
