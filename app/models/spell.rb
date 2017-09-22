@@ -127,10 +127,8 @@ class Spell
     File.open("./data/NLPSpellPerEffect.json", "w") do |f|
       f.write(map.to_json)
     end
-    return map
+    return true
   end
-
-
 
 
 

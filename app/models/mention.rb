@@ -1,5 +1,6 @@
 require 'json'
 require 'binaryheap'
+require 'httparty'
 
 class Mention
 
@@ -114,6 +115,40 @@ class Mention
     end
     return map
   end
+
+  #function to find the sentiment analysis of mention of each spell then average it out
+  #again, we will cache the results to improve loading time in the front-end
+  def self.computeSentimentPerSpellUsingMentions
+    map = Hash.new(0.0)
+    mentions = Mention.data
+    #retrive map of counts of all spells in mentions
+    countsOfSpells = Spell.findCountsOfAllSpellsInMention
+
+    #compute running sum of sentiment score per spell
+    for mention in mentions
+      spell = mention["Spell"]
+      passage = mention["Concordance"]
+
+      params = {"document"=>{"type"=>"PLAIN_TEXT","content"=>passage}}
+      res = HTTParty.post('https://language.googleapis.com/v1/documents:analyzeSentiment?key=AIzaSyBOAfHGMstijDScEPO4E2_HRzd7-UoVR7g',
+                          :body => params.to_json, :headers => {'Content-Type' => 'application/json'})
+      map[spell] = map[spell] + res["documentSentiment"]["score"]
+    end
+
+    #compute averages
+    map.each do |k, v|
+      map[k] = (v / (countsOfSpells[k]))
+    end
+
+    #cache the results
+    File.open("./data/NLPSpellPerMentionAvg.json", "w") do |f|
+      f.write(map.to_json)
+    end
+
+    return true
+  end
+
+
 
 
 end
