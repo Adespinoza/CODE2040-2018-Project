@@ -148,6 +148,45 @@ class Mention
     return true
   end
 
+  #function to compute the sentiment analysis average per book
+  #we will cache results again to improve loading time on front-end
+  def self.computeSentimentPerBook
+    #first find the sentiment sum for book
+    map = Hash.new(0.0)
+    books = ["1: SS", "2: CoS", "3: PoA", "4: GoF", "5: OotP", "6: HBP", "7: DH"]
+    mentions = Mention.data
+
+    for book in books
+      map[book] = 0
+    end
+
+    #running sentiment sum per book
+    for mention in mentions
+      bookI = mention["Book"]
+      passage = mention["Concordance"]
+      params = {"document"=>{"type"=>"PLAIN_TEXT","content"=>passage}}
+      res = HTTParty.post('https://language.googleapis.com/v1/documents:analyzeSentiment?key=AIzaSyBOAfHGMstijDScEPO4E2_HRzd7-UoVR7g',
+                          :body => params.to_json, :headers => {'Content-Type' => 'application/json'})
+      map[bookI] = map[bookI] + res["documentSentiment"]["score"]
+    end
+
+    #compute the averages per book
+    bookCounts = Mention.bookFrequency
+
+    map.each do |k, v|
+      map[k] = (v / (bookCounts[k]))
+    end
+
+    #cache results
+    File.open("./data/NLPBookPerMentionAvg.json", "w") do |f|
+      f.write(map.to_json)
+    end
+    return true
+  end
+
+
+  #function to map position to sentiment score
+
 
 
 

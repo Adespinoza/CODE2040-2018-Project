@@ -9,8 +9,6 @@ class HomeController < ApplicationController
     @test = Mention.topEightMostCommonNames
     @bookToSpellsMap = Mention.minimalSpellCountAmongAllBooks
     @top2SpellsMap = Mention.topNSpellsPerBook(8)
-    @sentiment = Spell.sentimentPerSpellWriteFile
-    @nlpSpellScoreByPassage = Mention.computeSentimentPerSpellUsingMentions
   end
 
   # GET /about

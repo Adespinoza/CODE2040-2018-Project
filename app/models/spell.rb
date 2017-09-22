@@ -130,7 +130,4 @@ class Spell
     return true
   end
 
-
-
-
 end
