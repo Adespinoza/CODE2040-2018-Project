@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  # GET /
+  # GET / Make a single page app so all 
   def index
     @name = Spell.random.name
     @other = Mention.random.quote
