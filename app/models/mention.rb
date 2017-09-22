@@ -186,8 +186,26 @@ class Mention
 
 
   #function to map position to sentiment score
+  def self.mapPositionToSentiment
+    map = Hash.new(0.0)
+    mentions = Mention.data
 
+    #find sentiment at position
+    for mention in mentions
+      pos = mention["Position"]
+      passage = mention["Concordance"]
+      params = {"document"=>{"type"=>"PLAIN_TEXT","content"=>passage}}
+      res = HTTParty.post('https://language.googleapis.com/v1/documents:analyzeSentiment?key=AIzaSyBOAfHGMstijDScEPO4E2_HRzd7-UoVR7g',
+                          :body => params.to_json, :headers => {'Content-Type' => 'application/json'})
+      map[pos] = res["documentSentiment"]["score"]
+    end
 
+    #cache results
+    File.open("./data/NLPPositionSentiment.json", "w") do |f|
+      f.write(map.to_json)
+    end
+    return true
+  end
 
 
 end
