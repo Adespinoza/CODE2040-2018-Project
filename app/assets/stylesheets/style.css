@@ -1,10 +1,13 @@
 .data-side {
-  background-color: blue;
   height: 100vh;
 }
 .menu-side {
-  background-color: yellow;
+  background-color: green;
   height: 100vh;
+}
+
+.d-title {
+  background-color: yellow;
 }
 @media screen and (min-width:480px) {
   .container-margin {
@@ -15,7 +18,8 @@
 
 @media screen and (max-width:479px) {
   .container-margin {
-    margin-right: -12px;
-    margin-left: -12px;
+    margin-top: -20px;
+    margin-right: -15px;
+    margin-left: -15px;
   }
 }
