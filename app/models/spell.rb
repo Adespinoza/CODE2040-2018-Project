@@ -1,4 +1,5 @@
 require 'json'
+require 'httparty'
 
 class Spell
 
@@ -107,6 +108,27 @@ class Spell
     end
     return map
   end
+
+
+  #function to return a map of spells and their sentiment sentiment
+  #score by using the google NLP API
+  def self.sentimentPerSpell
+    map = Hash.new(0.0)
+    spells = Spell.data
+
+    for spell in spells
+      eff = spell["Effect"]
+      params = {"document"=>{"type"=>"PLAIN_TEXT","content"=>eff}}
+      res = HTTParty.post('https://language.googleapis.com/v1/documents:analyzeSentiment?key=AIzaSyBOAfHGMstijDScEPO4E2_HRzd7-UoVR7g',
+                          :body => params.to_json, :headers => {'Content-Type' => 'application/json'})
+      map[spell["Spell"]] = res["documentSentiment"]["score"]
+    end
+  return map
+  end
+
+
+
+
 
 
 end
