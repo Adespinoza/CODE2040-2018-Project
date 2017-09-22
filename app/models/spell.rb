@@ -112,7 +112,7 @@ class Spell
 
   #function to return a map of spells and their sentiment sentiment
   #score by using the google NLP API
-  def self.sentimentPerSpell
+  def self.sentimentPerSpellWriteFile
     map = Hash.new(0.0)
     spells = Spell.data
 
@@ -123,7 +123,11 @@ class Spell
                           :body => params.to_json, :headers => {'Content-Type' => 'application/json'})
       map[spell["Spell"]] = res["documentSentiment"]["score"]
     end
-  return map
+    #now we want to cache this map to JSON format to decrease running time
+    File.open("./data/NLPSpellPerEffect.json", "w") do |f|
+      f.write(map.to_json)
+    end
+    return map
   end
 
 
