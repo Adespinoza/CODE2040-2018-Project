@@ -1,14 +1,19 @@
-.data-side {
-  height: 100vh;
+body {
+  font-family: roboto;
 }
-.menu-side {
-  background-color: green;
-  height: 100vh;
+.data-side {
+
 }
 
-.d-title {
-  background-color: yellow;
+#navlist li
+{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
 }
+
+
+
 @media screen and (min-width:480px) {
   .container-margin {
     margin-right: -15px;
