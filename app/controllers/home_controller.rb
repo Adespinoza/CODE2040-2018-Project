@@ -8,6 +8,8 @@ class HomeController < ApplicationController
     @bookData = Mention.bookFrequency
     @test = Mention.topEightMostCommonNames
     @bookToSpellsMap = Mention.minimalSpellCountAmongAllBooks
+    @NLPTEST = Mention.topNSpellsPerBook(5)
+    @TEST = Mention.spellsPerBook 
   end
 
   # GET /about

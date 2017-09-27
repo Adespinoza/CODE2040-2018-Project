@@ -37,7 +37,7 @@ class Mention
       tempHash = {k=>v};
       data.push(tempHash)
     end
-    return data.to_json
+    return data
   end
 
   #function to create a map of books and all their spells (as well as their count)
@@ -83,7 +83,7 @@ class Mention
   #function to retrieve the top n spells per book
   def self.topNSpellsPerBook(n)
     bookToSpellsMap = Mention.spellsPerBook
-
+    dataOuter = []
     #we will return a map of books --> maps with the top n spells used
     #if there are non n spells used it only return as many as there are
     booksToSpellsTopN = Hash.new()
@@ -106,14 +106,23 @@ class Mention
           booksToSpellsTopN[k][k3] = v3
           count = count + 1
         end
-
-
-
-
       end
     end
+
+    #start with the outer layer
+    booksToSpellsTopN.each do |book, topNSpells|
+      dataInner = []
+      topNSpells.each do |spell, count|
+        dataInner.push({spell=>count})
+      end
+      updatedInnerData = []
+      updatedInnerData.replace(dataInner)
+      dataOuter.push({book=>updatedInnerData})
+    end
+
+
     #return mapping of books to topN spells per book
-    return booksToSpellsTopN
+    return dataOuter.to_json
   end
 
   #function to find the 8 most common names in mentions
@@ -173,6 +182,7 @@ class Mention
     #first find the sentiment sum for book
     map = Hash.new(0.0)
     books = ["1: SS", "2: CoS", "3: PoA", "4: GoF", "5: OotP", "6: HBP", "7: DH"]
+    data = []
     mentions = Mention.data
 
     for book in books
@@ -191,14 +201,20 @@ class Mention
 
     #compute the averages per book
     bookCounts = Mention.bookFrequency
+    count = 0
+    map.each do |k, v|
+      map[k] = (v / (bookCounts[count][k]))
+      count = count + 1
+    end
 
     map.each do |k, v|
-      map[k] = (v / (bookCounts[k]))
+      tempHash = {k=>v}
+      data.push(tempHash)
     end
 
     #cache results
     File.open("./data/NLPBookPerMentionAvg.json", "w") do |f|
-      f.write(map.to_json)
+      f.write(data.to_json)
     end
     return true
   end
@@ -208,6 +224,7 @@ class Mention
   def self.mapPositionToSentiment
     map = Hash.new(0.0)
     mentions = Mention.data
+    data = []
 
     #find sentiment at position
     for mention in mentions
@@ -219,9 +236,15 @@ class Mention
       map[pos] = res["documentSentiment"]["score"]
     end
 
+    map.each do |k, v|
+      tempHash = {k=>v}
+      data.push(tempHash)
+    end
+
+
     #cache results
     File.open("./data/NLPPositionSentiment.json", "w") do |f|
-      f.write(map.to_json)
+      f.write(data.to_json)
     end
     return true
   end
