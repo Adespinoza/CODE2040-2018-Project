@@ -37,6 +37,11 @@ class Mention
       tempHash = {k=>v};
       data.push(tempHash)
     end
+
+    #cache data for fast delivery to front-end
+    File.open("./data/viz_data/natr/bookFreq.json", "w") do |f|
+      f.write(data.to_json)
+    end
     return data
   end
 
@@ -120,8 +125,6 @@ class Mention
       dataOuter.push({book=>updatedInnerData})
     end
 
-
-    #return mapping of books to topN spells per book
     return dataOuter.to_json
   end
 
@@ -169,7 +172,7 @@ class Mention
     end
 
     #cache the results
-    File.open("./data/NLPSpellPerMentionAvg.json", "w") do |f|
+    File.open("./data/viz_data/nlp/NLPSpellPerMentionAvg.json", "w") do |f|
       f.write(data.to_json)
     end
 
@@ -213,7 +216,7 @@ class Mention
     end
 
     #cache results
-    File.open("./data/NLPBookPerMentionAvg.json", "w") do |f|
+    File.open("./data/viz_data/nlp/NLPBookPerMentionAvg.json", "w") do |f|
       f.write(data.to_json)
     end
     return true
@@ -243,7 +246,7 @@ class Mention
 
 
     #cache results
-    File.open("./data/NLPPositionSentiment.json", "w") do |f|
+    File.open("./data/viz_data/nlp/NLPPositionSentiment.json", "w") do |f|
       f.write(data.to_json)
     end
     return true

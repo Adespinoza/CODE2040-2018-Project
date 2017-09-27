@@ -113,6 +113,9 @@ class Spell
       tempHash = {k=>v};
       data.push(tempHash)
     end
+    File.open("./data/viz_data/natr/spellFreq.json", "w") do |f|
+      f.write(data.to_json)
+    end
     return data
   end
 
@@ -139,7 +142,7 @@ class Spell
     end
 
     #now we want to cache this map to JSON format to decrease running time
-    File.open("./data/NLPSpellPerEffect.json", "w") do |f|
+    File.open("./data/viz_data/nlp/NLPSpellPerEffect.json", "w") do |f|
       f.write(data.to_json)
     end
     return true
