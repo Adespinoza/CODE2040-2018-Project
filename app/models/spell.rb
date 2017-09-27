@@ -101,12 +101,19 @@ class Spell
   #function to find the counts of all the spells in mention
   #returns an array
   def self.findCountsOfAllSpellsInMention
+    data = []
     map = Hash.new(0)
     mentionArr = Mention.data
     for mention in mentionArr
       map[mention["Spell"]] = map[mention["Spell"]] + 1
     end
-    return map
+
+    #put in an array
+    map.each do |k, v|
+      tempHash = {k=>v};
+      data.push(tempHash)
+    end
+    return data
   end
 
 
@@ -115,6 +122,7 @@ class Spell
   def self.sentimentPerSpellWriteFile
     map = Hash.new(0.0)
     spells = Spell.data
+    data = []
 
     for spell in spells
       eff = spell["Effect"]
@@ -123,9 +131,16 @@ class Spell
                           :body => params.to_json, :headers => {'Content-Type' => 'application/json'})
       map[spell["Spell"]] = res["documentSentiment"]["score"]
     end
+
+    #put in an array
+    map.each do |k, v|
+      tempHash = {k=>v};
+      data.push(tempHash)
+    end
+
     #now we want to cache this map to JSON format to decrease running time
     File.open("./data/NLPSpellPerEffect.json", "w") do |f|
-      f.write(map.to_json)
+      f.write(data.to_json)
     end
     return true
   end

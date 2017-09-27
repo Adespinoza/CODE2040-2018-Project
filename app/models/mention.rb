@@ -23,14 +23,21 @@ class Mention
     new(data.sample)
   end
 
-  #function to find the frequency of each book in the data set
+  #function to find the frequency of each book in the mentions data set
   def self.bookFrequency
+    data = []
     map = Hash.new(0)
     mentionArr = Mention.data
     for mention in mentionArr
       map[mention["Book"]] = map[mention["Book"]] + 1
     end
-    return map
+
+    #put in data array, prep for json conversion
+    map.each do |k, v|
+      tempHash = {k=>v};
+      data.push(tempHash)
+    end
+    return data.to_json
   end
 
   #function to create a map of books and all their spells (as well as their count)
@@ -99,6 +106,10 @@ class Mention
           booksToSpellsTopN[k][k3] = v3
           count = count + 1
         end
+
+
+
+
       end
     end
     #return mapping of books to topN spells per book
@@ -121,6 +132,7 @@ class Mention
   def self.computeSentimentPerSpellUsingMentions
     map = Hash.new(0.0)
     mentions = Mention.data
+    data = []
     #retrive map of counts of all spells in mentions
     countsOfSpells = Spell.findCountsOfAllSpellsInMention
 
@@ -134,15 +146,22 @@ class Mention
                           :body => params.to_json, :headers => {'Content-Type' => 'application/json'})
       map[spell] = map[spell] + res["documentSentiment"]["score"]
     end
-
+    count = 0.0;
     #compute averages
     map.each do |k, v|
-      map[k] = (v / (countsOfSpells[k]))
+      map[k] = (v / (countsOfSpells[count][k]))
+      count = count + 1
+    end
+
+    #compute array of objects, for easier json manimpulation
+    map.each do |k, v|
+      tempHash = {k=>v};
+      data.push(tempHash)
     end
 
     #cache the results
     File.open("./data/NLPSpellPerMentionAvg.json", "w") do |f|
-      f.write(map.to_json)
+      f.write(data.to_json)
     end
 
     return true
