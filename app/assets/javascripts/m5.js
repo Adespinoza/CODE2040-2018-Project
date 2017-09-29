@@ -44,7 +44,7 @@ $.getJSON("data/book-sent", function(data) {
       data: {
           labels: bookNames,
           datasets: [{
-              label: 'Spell Frequency',
+              label: 'Average Sentiment of Mentions Per Book',
               data: avgSent,
               backgroundColor: colorsForData,
               borderColor: bordersForData,
@@ -61,7 +61,7 @@ $.getJSON("data/book-sent", function(data) {
           },
           title: {
             display: true,
-            text: 'Spells Per Book'
+            text: 'Average Sentiment Per Book By Mention'
           },
           legend : {
             position: 'bottom'

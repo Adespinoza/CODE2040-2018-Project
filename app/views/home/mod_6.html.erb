@@ -27,10 +27,10 @@
           <a class="nav-link" href="/4" id="m4">mod 4</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#" id="m5">mod 5</a>
+          <a class="nav-link" href="/5" id="m5">mod 5</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/6" id="m6">mod 6</a>
+          <a class="nav-link active" href="#" id="m6">mod 6</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/about" id="m8">about me</a>
@@ -41,30 +41,28 @@
   <div class="row" id="data-content">
     <div class="col-12 col-sm-12 col-md-12 col-lg-8">
 
-          <canvas id="data_viz" width="500" height="300"></canvas>
+          <canvas id="data_viz" width="500" height="370"></canvas>
 
 
     </div>
 
     <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-      <h4>Average Sentiment Per Book By Mention</h4>
+      <h4>Sentiment by Position</h4>
       <p>
-        Here I visualize the average sentiment per book from all the mentions from a particular book and averaging all their sentiment scores.
-        Again, the sentiment was retrieved using the
+        The <strong>Mentions</strong> dataset came along with an interesting property: <strong><em>position</em></strong>.
+        For this module, I thought it would be interesting to visualize the relationship between the position of a mention
+        and the sentiment at that position. Sentiment was retrieved using the
         <a target="_blank" href="https://cloud.google.com/natural-language/">Google NLP API</a>.
       </p>
       <p>
-        Interestingly, all averages are <strong>negative</strong>, indicating that on average the sentiment for each time
-        a spell was used in each book it was negative. It is important to note, however, that the datasets provided
-        were skewed. As I illustrated in <a href="/2">module 2</a> there were far more mentions that pertained to the last 5 books in the series
-        than the first 2.
-      </p>
-      <p>
-        That said, it is interesting to see that each book had an <strong>average negative sentiment</strong> for each mention contained in the dataset. 
+        As visualized in the chart being rendered, there <strong>does not appear to be any consistent linear relationship</strong> between the
+        position of a mention and its sentiment. However, there does appear to be a <strong>sinusoidal shape</strong> to the visualization.
+        That said, without more information on the specifications and the motivations on how the data was collected, it is difficult to
+        come to a conclusion regarding the relationship between position and sentiment.
       </p>
 
     </div>
   </div>
 
 </div>
-<%= javascript_include_tag 'm5' %>
+<%= javascript_include_tag 'm6' %>

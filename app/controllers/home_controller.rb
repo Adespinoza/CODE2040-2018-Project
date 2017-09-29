@@ -27,4 +27,8 @@ class HomeController < ApplicationController
 
   end
 
+  def mod_6
+
+  end
+
 end
