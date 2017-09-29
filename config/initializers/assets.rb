@@ -21,6 +21,8 @@ Rails.application.config.assets.precompile += %w( m2.js )
 
 Rails.application.config.assets.precompile += %w( m3.js )
 
+Rails.application.config.assets.precompile += %w( m4.js )
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

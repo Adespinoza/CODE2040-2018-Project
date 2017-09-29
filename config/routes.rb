@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about', to: 'home#about'
   get '2', to: 'home#mod_2'
   get '3', to: 'home#mod_3'
+  get '4', to: 'home#mod_4'
 
 
   get 'data/spell-freq', to: 'data#spell_freq', defaults: { format: 'json' }

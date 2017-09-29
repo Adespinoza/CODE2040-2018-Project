@@ -18,13 +18,13 @@
           <a class="nav-link" href="/">mod 1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">mod 2</a>
+          <a class="nav-link" href="/2">mod 2</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/3" id="m3">mod 3</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/4" id="m4">mod 4</a>
+          <a class="nav-link active" href="#" id="m4">mod 4</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/5" id="m5">mod 5</a>
@@ -40,20 +40,29 @@
   </div>
   <div class="row" id="data-content">
     <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-        <canvas id="data_viz" width="400" height="200"></canvas>
-    </div>
-    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-      <h4>Spell Frequency Per Book</h4>
-      <p>
-        In this module, I illustrate the frequency of spells that appeared in the Mentions dataset. As we can see,
-        not very many lines/phrases from the two earliest books were available in the dataset. For instance, starting with <em>Harry
-        Potter and the Prisoner of Azkaban</em> (PoA), spell counts grow dramatically (there is an over 47 spell difference count between PoA and
-        SS).
-      </p>
 
+          <canvas id="data_viz" width="500" height="300"></canvas>
+
+
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+      <h4>Average Sentiment Per Spell By Mention</h4>
+      <p>
+        For this module, I decided to look at the relationship between the Mentions in which each spell was used and its average sentiment among
+        all its mentions.
+        I was interested in seeing if the contextual
+        usage of the spell illustrated any pattern in regards to sentiment. Again, the sentiment was retrieved using the
+        <a target="_blank" href="https://cloud.google.com/natural-language/">Google NLP API</a>.
+      </p>
+      <p>
+        The chart being rendered partitions all spells into 5 categories of sentiment according to their average Mention sentiment score.
+        Here we see that most average Mention sentiment scores for spells were either <strong>mildly negative</strong> or <strong>negative</strong>. This
+        may indicate something about the general tone of the text whenever a spell is used.
+      </p>
 
     </div>
   </div>
 
 </div>
-<%= javascript_include_tag 'm2' %>
+<%= javascript_include_tag 'm4' %>

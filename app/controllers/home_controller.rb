@@ -16,11 +16,11 @@ class HomeController < ApplicationController
   end
 
   def mod_3
-    
+
   end
 
-  def data
-    render "hi"
+  def mod_4
+
   end
 
 end

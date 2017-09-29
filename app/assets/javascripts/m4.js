@@ -1,9 +1,7 @@
-//retrieve data from backend --> make an API call
-$.getJSON("/data/spell-def-sent", function(data) {
-  console.log(data)
-
-  //will partition data into 4 different blocks:
-  //each block will represent a range of values from -1 to 1
+$.getJSON("data/spell-in-men-sent", function(data) {
+  //construct our data to render it as a chart
+  var spellNames = []
+  var spellSentAVG = []
 
   //p1 encompases ranges --> [-1, -.5)
   var p1 = 0
@@ -16,6 +14,8 @@ $.getJSON("/data/spell-def-sent", function(data) {
   //p5 for 0
   var pZero = 0
 
+
+  //calculate each grouping
   data.forEach(function(d) {
     for (var key in d) {
       if (d.hasOwnProperty(key)) {
@@ -28,7 +28,7 @@ $.getJSON("/data/spell-def-sent", function(data) {
         else if (val >= -.5 && val < 0) {
           p2++;
         }
-        else if (val == 0) {
+        else if (val === 0) {
           pZero++;
         }
         else if (val > 0 && val < .5) {
@@ -43,7 +43,7 @@ $.getJSON("/data/spell-def-sent", function(data) {
 
   var ctx = document.getElementById("data_viz");
   var chart = new Chart(ctx, {
-    type: 'doughnut',
+    type: 'pie',
     data: {
       datasets: [{
         data: [
@@ -84,7 +84,7 @@ $.getJSON("/data/spell-def-sent", function(data) {
       },
       title: {
         display: true,
-        text: 'Sentiment Per Spell (Definitional)'
+        text: 'Average Sentiment Per Spell By Mention'
       },
       animation: {
         animateScale: true,
@@ -92,5 +92,4 @@ $.getJSON("/data/spell-def-sent", function(data) {
       }
     }
   });
-
 });
