@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+      <div class="title">
+
+        <h2><strong>Visualizing Potter</strong></h2>
+        <h5>Data visualization project for <Strong>Code2040 Fellows Program</Strong> application</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+
+      <!--navigation of modules -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">mod 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">mod 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/3" id="m3">mod 3</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/4" id="m4">mod 4</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/5" id="m5">mod 5</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/6" id="m6">mod 6</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about" id="m8">about me</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row" id="data-content">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+        <canvas id="data_viz" width="400" height="200"></canvas>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+      <h4>Spell Frequency Per Book</h4>
+      <p>
+        In this module, I illustrate the frequency of spells that appeared in the Mentions dataset. As we can see,
+        not very many lines/phrases from the two earliest books were available in the dataset. For instance, starting with <em>Harry
+        Potter and the Prisoner of Azkaban</em> (PoA), spell counts grow dramatically (over 47 spell difference between PoA and
+        SS).
+      </p>
+
+
+    </div>
+  </div>
+
+</div>
+<%= javascript_include_tag 'm2' %>

@@ -3,10 +3,12 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   get 'about', to: 'home#about'
+  get '2', to: 'home#mod_2'
+  get '3', to: 'home#mod_3'
 
 
   get 'data/spell-freq', to: 'data#spell_freq', defaults: { format: 'json' }
-  get 'data/book-freq', to: 'data#spell_freq', defaults: { format: 'json' }
+  get 'data/book-freq', to: 'data#book_freq', defaults: { format: 'json' }
   get 'data/spell-def-sent', to: 'data#spell_def_sent', defaults: { format: 'json' }
   get 'data/spell-in-men-sent', to: 'data#spell_in_men_sent', defaults: { format: 'json' }
   get 'data/book-sent', to: 'data#book_sent', defaults: { format: 'json' }

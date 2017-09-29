@@ -11,6 +11,16 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( js.js )
 
+Rails.application.config.assets.precompile += %w( m1.js )
+
+Rails.application.config.assets.precompile += %w( nv.d3.min.js )
+
+Rails.application.config.assets.precompile += %w( nv.d3.min.css )
+
+Rails.application.config.assets.precompile += %w( m2.js )
+
+Rails.application.config.assets.precompile += %w( m3.js )
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

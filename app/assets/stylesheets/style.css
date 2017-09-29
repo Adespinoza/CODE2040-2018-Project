@@ -1,15 +1,22 @@
 body {
-  font-family: roboto;
-}
-.data-side {
-
+  font-family: 'Didact Gothic', sans-serif;
 }
 
-#navlist li
-{
-display: inline;
-list-style-type: none;
-padding-right: 20px;
+.title {
+  margin-top: 24px;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+#data-content {
+  padding-top: 20px;
+}
+
+.pers_pic {
+  width: 600px;
+  height: auto;
 }
 
 

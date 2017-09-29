@@ -1,41 +1,70 @@
-<div class="data-analysis">
-  <div class="container-fluid container-margin">
+  <div class="container">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12">
-      <div class="d-title">
+        <div class="title">
 
-        <h1>Visualizing Potter</h1>
-        <h4>Data visualization project for Code2040 fellows application</h4>
+          <h2><strong>Visualizing Potter</strong></h2>
+          <h5>Data visualization project for <Strong>Code2040 Fellows Program</Strong> application</h5>
+        </div>
       </div>
     </div>
-    </div>
 
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-12">
+      <div class="col-12">
 
-
-          <ul id ="navlist">
-            <li>
-              <a href"swag">mod1</a>
-            </li>
-            <li>
-              <a href"swag">mod1</a>
-            </li>
-            <li>
-              <a href"swag">mod1</a>
-            </li>
-          </ul>
-
-
-
-
-
-
-
-
+        <!--navigation of modules -->
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">mod 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/2">mod 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/3" id="m3">mod 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/4" id="m4">mod 4</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/5" id="m5">mod 5</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/6" id="m6">mod 6</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about" id="about">about me</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row" id="data-content">
+      <div class="col-12 col-sm-12 col-md-8">
+          <canvas id="data_viz" width="400" height="355"></canvas>
+      </div>
+      <div class="col-12 col-sm-12 col-md-4">
+        <h4>Hello!</h4>
+        <p>
+          Welcome to my code sample for the <strong> 2018 Code2040 Fellows Program</strong> application! For this project,
+          I decided to explore the given Harry Potter dataset through visualization and some basic NLP.
+        </p>
+        <p>
+          Before I begin, I think it is important for me to provide some information on the data we were provided with. Firstly,
+          we were given a <strong>Spells</strong> dataset that consisted of a list of spells and what they do. Secondly, we were given
+          a <strong>Mentions</strong> dataset that consisted of lines/phrases from the book that contained a spell. That said, let's jump into
+          the visualizations!
+        </p>
+        <p>
+          The graph currently being rendered illustrates the <strong>top 15 spells</strong> that appear throughout the entire Mentions dataset. Hover
+          over each bar in the graph to view the name of each spell and the amount of times it appeared in the dataset.
+        </p>
+        <p>
+          Access the other visualization modules I created to explore things like the frequency of spells per Harry Potter book and
+          the average sentiment per book using the <a target="_blank" href="https://cloud.google.com/natural-language/">Google NLP API</a>.
+        </p>
 
       </div>
     </div>
 
   </div>
-</div>
+<%= javascript_include_tag 'm1' %>
