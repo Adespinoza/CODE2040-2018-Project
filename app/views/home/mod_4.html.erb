@@ -15,10 +15,10 @@
       <!--navigation of modules -->
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" href="/">mod 1</a>
+          <a class="nav-link" href="/" id="m1">mod 1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/2">mod 2</a>
+          <a class="nav-link" href="/2" id="m2">mod 2</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/3" id="m3">mod 3</a>
@@ -33,7 +33,7 @@
           <a class="nav-link" href="/6" id="m6">mod 6</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about" id="m8">about me</a>
+          <a class="nav-link" href="/about" id="about">about me</a>
         </li>
       </ul>
     </div>
@@ -49,15 +49,15 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-4">
       <h4>Average Sentiment Per Spell By Mention</h4>
       <p>
-        For this module, I decided to look at the relationship between the Mentions in which each spell was used and its average sentiment among
-        all its mentions.
+        For this module, I decided to look at the relationship between the <strong>average sentiment score per spell by averaging the sentiment
+        of every mention that a particular spell appeared in</strong>.
         I was interested in seeing if the contextual
         usage of the spell illustrated any pattern in regards to sentiment. Again, the sentiment was retrieved using the
         <a target="_blank" href="https://cloud.google.com/natural-language/">Google NLP API</a>.
       </p>
       <p>
-        The chart being rendered partitions all spells into 5 categories of sentiment according to their average Mention sentiment score.
-        Here we see that most average Mention sentiment scores for spells were either <strong>mildly negative</strong> or <strong>negative</strong>. This
+        The chart being rendered partitions all the spells into 5 categories of sentiment according to their averaged sentiment score.
+        Here we see that most average sentiment scores per spell were either <strong>mildly negative</strong> or <strong>negative</strong>. This
         may indicate something about the general tone of the text whenever a spell is used.
       </p>
 

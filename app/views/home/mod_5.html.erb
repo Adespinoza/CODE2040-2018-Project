@@ -15,10 +15,10 @@
       <!--navigation of modules -->
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" href="/">mod 1</a>
+          <a class="nav-link" href="/" id="m1">mod 1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/2">mod 2</a>
+          <a class="nav-link" href="/2" id="m2">mod 2</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/3" id="m3">mod 3</a>
@@ -33,7 +33,7 @@
           <a class="nav-link" href="/6" id="m6">mod 6</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about" id="m8">about me</a>
+          <a class="nav-link" href="/about" id="about">about me</a>
         </li>
       </ul>
     </div>
@@ -49,18 +49,18 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-4">
       <h4>Average Sentiment Per Book By Mention</h4>
       <p>
-        Here I visualize the average sentiment per book from all the mentions from a particular book and averaging all their sentiment scores.
-        Again, the sentiment was retrieved using the
+        Here I visualize the <strong>average sentiment per book by using all the mentions from a particular book and averaging their sentiment scores</strong>.
+    Sentiment was retrieved using the
         <a target="_blank" href="https://cloud.google.com/natural-language/">Google NLP API</a>.
       </p>
       <p>
-        Interestingly, all averages are <strong>negative</strong>, indicating that on average the sentiment for each time
-        a spell was used in each book it was negative. It is important to note, however, that the datasets provided
-        were skewed. As I illustrated in <a href="/2">module 2</a> there were far more mentions that pertained to the last 5 books in the series
-        than the first 2.
+        Interestingly, all sentiment score averages are <strong>negative</strong>, indicating that on average the sentiment for each time
+        a spell was used in each book it was negative. It is important to note, however, that the <strong>datasets provided
+        were skewed</strong>. As I illustrated in <a href="/2">module 2</a> there were far more mentions that pertained to the last 5 books in the series
+        than in the first 2.
       </p>
       <p>
-        That said, it is interesting to see that each book had an <strong>average negative sentiment</strong> for each mention contained in the dataset. 
+        That said, it is interesting to see that each book had an <strong>average negative sentiment</strong> amongst all mentions.
       </p>
 
     </div>

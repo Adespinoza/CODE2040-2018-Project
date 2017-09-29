@@ -15,10 +15,10 @@
       <!--navigation of modules -->
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" href="/">mod 1</a>
+          <a class="nav-link" href="/" id="m1">mod 1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/2">mod 2</a>
+          <a class="nav-link" href="/2" id="m2">mod 2</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/3" id="m3">mod 3</a>
@@ -33,7 +33,7 @@
           <a class="nav-link active" href="#" id="m6">mod 6</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about" id="m8">about me</a>
+          <a class="nav-link" href="/about" id="about">about me</a>
         </li>
       </ul>
     </div>
@@ -49,15 +49,15 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-4">
       <h4>Sentiment by Position</h4>
       <p>
-        The <strong>Mentions</strong> dataset came along with an interesting property: <strong><em>position</em></strong>.
+        The <strong>Mentions</strong> dataset came with an interesting property: <strong><em>position</em></strong>.
         For this module, I thought it would be interesting to visualize the relationship between the position of a mention
-        and the sentiment at that position. Sentiment was retrieved using the
+        and the sentiment at that particular position. Sentiment was retrieved using the
         <a target="_blank" href="https://cloud.google.com/natural-language/">Google NLP API</a>.
       </p>
       <p>
         As visualized in the chart being rendered, there <strong>does not appear to be any consistent linear relationship</strong> between the
         position of a mention and its sentiment. However, there does appear to be a <strong>sinusoidal shape</strong> to the visualization.
-        That said, without more information on the specifications and the motivations on how the data was collected, it is difficult to
+        That said, without more information on the specifications and motivations of the data, it is difficult to
         come to a conclusion regarding the relationship between position and sentiment.
       </p>
 

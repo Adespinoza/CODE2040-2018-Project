@@ -15,10 +15,10 @@
       <!--navigation of modules -->
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" href="/">mod 1</a>
+          <a class="nav-link" href="/" id="m1">mod 1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/2">mod 2</a>
+          <a class="nav-link" href="/2" id="m2">mod 2</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#" id="m3">mod 3</a>
@@ -33,7 +33,7 @@
           <a class="nav-link" href="/6" id="m6">mod 6</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about" id="m8">about me</a>
+          <a class="nav-link" href="/about" id="about">about me</a>
         </li>
       </ul>
     </div>
@@ -49,13 +49,13 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-4">
       <h4>Sentiment Per Spell</h4>
       <p>
-        In this module, I illustrate the groupings of values of sentiment for the <strong>effect</strong> of each spell. Essentially, each spell
-        provided in the Spell dataset came with a description of the effect of this spell. I thought it'd be interesting to see if their was
-        some sort of relationship between the spells and thier effects.
+        In this module, I illustrate groupings of spells by sentiment scores by the <strong>effect</strong> of each spell. Essentially, each spell
+        provided in the Spell dataset came with a description of its effect. I thought it'd be interesting to see if their was
+        a relationship between the spells and thier effects.
       </p>
       <p>
-        To figure this out, I made use the <a target="_blank" href="https://cloud.google.com/natural-language/">Google NLP API</a> to retrieve the sentiment of the effect of each spell.
-        The NLP API will compute a sentiment score from -1 to 1 for a peice of text, where -1 indicates a very negative sentiment and
+        To figure this out, I made use of the <a target="_blank" href="https://cloud.google.com/natural-language/">Google NLP API</a> to retrieve the sentiment of the effect of each spell.
+        The NLP API computes a sentiment score from -1 to 1 for a peice of text, where -1 indicates a very negative sentiment and
         1 indicates a very positive sentiment. The doughnut chart groups the 92 spells provided in the <strong>Spells</strong> dataset into 5 sentiment groupings
         by effect.
       </p>
