@@ -2,7 +2,7 @@
 $( document ).ready(function() {
   var windowWidth = $(window).width();
 
-  if (windowWidth <= 750) {
+  if (windowWidth <= 769) {
     $(document).ready(function() {
 
       $("#m1").text("1");
@@ -28,7 +28,7 @@ $( document ).ready(function() {
 $(window).on('resize', function(event) {
   var windowWidth = $(window).width();
 
-  if (windowWidth <= 750) {
+  if (windowWidth <= 769) {
     $(document).ready(function() {
 
       $("#m1").text("1");
