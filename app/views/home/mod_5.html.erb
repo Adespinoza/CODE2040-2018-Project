@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+      <div class="title">
+
+        <h2><strong>Visualizing Potter</strong></h2>
+        <h5>Data visualization project for <Strong>Code2040 Fellows Program</Strong> application</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+
+      <!--navigation of modules -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">mod 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/2">mod 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/3" id="m3">mod 3</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/4" id="m4">mod 4</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#" id="m5">mod 5</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/6" id="m6">mod 6</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about" id="m8">about me</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row" id="data-content">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+
+          <canvas id="data_viz" width="500" height="300"></canvas>
+
+
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+      <h4>Average Sentiment Per Book By Mention</h4>
+      <p>
+        Here I visualize the average sentiment per book from all the mentions from a particular book and averaging all their sentiment scores.
+        Again, the sentiment was retrieved using the
+        <a target="_blank" href="https://cloud.google.com/natural-language/">Google NLP API</a>.
+      </p>
+      <p>
+        Interestingly, all averages are <strong>negative</strong>, indicating that on average the sentiment for each time
+        a spell was used in each book it was negative. It is important to note, however, that the datasets provided
+        were skewed. As I illustrated in <a href="/2">module 2</a> there were far more mentions that pertained to the last 5 books in the series
+        than the first 2.
+      </p>
+      <p>
+        That said, it is interesting to see that each book had an average negative sentiment for each mention contained in the dataset. 
+      </p>
+
+    </div>
+  </div>
+
+</div>
+<%= javascript_include_tag 'm5' %>
