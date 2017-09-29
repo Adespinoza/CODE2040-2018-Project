@@ -14,7 +14,7 @@ $.getJSON( "/data/spell-freq", function(data) {
     return aV > bV ? 1 : -1;
   })
 
-  //get top 50 percent of data
+  //get top 50 percent of dataa
   data = data.slice(data.length - 15, data.length)
 
   //iterate through array
