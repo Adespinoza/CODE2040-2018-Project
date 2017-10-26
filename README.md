@@ -71,3 +71,4 @@ A Few More Tips From Other Students
 Data
 ---------------
 The challenge uses a data set from Tableau. You can find the raw data in the `/data` directory. The dataset we chose is lighthearted and hopefully fun to explore. It's the spells of Harry Potter and all the times a spell was said in the books. You can see a visualization of the data on the home page. Play around with it to get a sense for what's in the data and to come up with some fun ideas for what to do.
+# CODE2040-2018-Project
